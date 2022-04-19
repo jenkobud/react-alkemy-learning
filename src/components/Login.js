@@ -1,5 +1,7 @@
+import React from 'react';
 import axios from 'axios';
 import swal from 'sweetalert';
+
 const submitHandler = e => {
   e.preventDefault();
   console.log("submitHandler log:");
@@ -43,16 +45,14 @@ const Label = (props) => {
 const Login = () => {
   //Devuelve JSX
   return(
-      <>
-    <form onSubmit={submitHandler}>
-      <div className = "form-child"><h2>Login</h2></div>
-      <div className = "form-child">
-        <Label name="email" type="email" id="emailId"/>
-        <Label name="password" type="password" id="passwordId"/>
-      </div>
-      <button type="submit"> Login </button>
-    </form>
-    </>
+      <form onSubmit={submitHandler}>
+        <div className = "form-child"><h2>Login</h2></div>
+        <div className = "form-child">
+          <Label name="email" type="email" id="emailId"/>
+          <Label name="password" type="password" id="passwordId"/>
+        </div>
+        <button type="submit"> Login </button>
+      </form>
   );
 }
 
