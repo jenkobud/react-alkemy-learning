@@ -1,12 +1,18 @@
 import axios from 'axios';
-
+import swal from 'sweetalert';
 const submitHandler = e => {
   e.preventDefault();
   console.log("submitHandler log:");
   const email = e.target.email.value;
   const password = e.target.password.value;
-  if(email === "" || password === "") alert("Email or Password is empty.");
-  else if(!validateEmailFormat(email)) alert("Invalid Email format.");
+  if(email === "" || password === "") {
+    //alert("Email or Password is empty.");
+    swal("Email or Password is empty", "Please complete both fields correctly", "error");
+
+  }else if(!validateEmailFormat(email)){
+    //alert("Invalid Email format.");
+    swal("Invalid Email format.", "Correct Example: example@service.com", "error");
+  }
   console.log(email);
   console.log(password);
   
