@@ -1,4 +1,6 @@
 .App {
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
@@ -35,4 +37,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Added by dev. */
+
+form{
+  background-color: #282c34;
+  color: aliceblue;
+  width: 80%;
+}
+
+.form-child{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
