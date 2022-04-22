@@ -1,15 +1,17 @@
 import * as React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignIn from './SignIn';
-import List from './List';
+import SignInPage from '../pages/SignInPage';
+import ListPage from '../pages/ListPage';
+import SearchPage from '../pages/SearchPage';
 
 const AppRouter = () => {
 
   return(
     <BrowserRouter>
       <Routes>
-      <Route path="/login" element={<SignIn />}/>
-      <Route path="/list" element={<List />}/>
+      <Route path="/login" element={<SignInPage />}/>
+      <Route path="/list" element={<ListPage />}/>
+      <Route path='/search' element={<SearchPage />}/>
       </Routes>
     </BrowserRouter>
   );

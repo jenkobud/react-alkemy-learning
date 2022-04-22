@@ -3,7 +3,6 @@ import { Box } from "@mui/system";
 
 
 const List = () => {
-
   return(
     <Box>
       <h2> Listado: </h2>

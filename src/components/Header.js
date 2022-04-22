@@ -1,0 +1,26 @@
+import './Header.css';
+import * as React from 'react';
+import { Link } from 'react-router-dom';
+
+const Header = () => {
+
+  return (
+    <header className='header-disney'>
+      <navbar>
+        <div className='container-logo'>
+          <img src='./logo.svg' title='disney-logo' alt=''/>
+        </div>
+        <ul>
+          <li><Link to="/list">Inicio</Link></li>                
+          <li><Link to="/films">Peliculas</Link></li>        
+          <li><Link to="/series">Series</Link></li>        
+          <li><Link to="/search">Bsuqueda</Link></li>        
+          <li><Link to="/favorites">Fav</Link></li>        
+          <li><Link to="/originals">Originales</Link></li>                   
+        </ul>
+      </navbar>
+    </header>
+  );
+}
+
+export default Header;

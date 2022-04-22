@@ -1,8 +1,6 @@
 import React from 'react';
-import './App.css';
-import Login from './components/Login.js';
+import './Layout.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import SignIn from './components/SignIn';
 import AppRouter from './components/AppRouter';
 
 const darkTheme = createTheme({

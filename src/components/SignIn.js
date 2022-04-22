@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { useState } from 'react'
-import axios from 'axios';
-import swal from 'sweetalert';
 import Avatar from '@mui/material/Avatar';
 import TextField from '@mui/material/TextField';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
@@ -13,8 +11,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import setSignIn from '../servicies/SignIn.service';
 import { typography } from '@mui/system';
 import Button from '@mui/material/Button';
-
-
+import { useNavigate } from 'react-router-dom';
 
 const validateEmailFormat = (email) => {
   const regexEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -33,6 +30,7 @@ export default function SignIn() {
   });
 
   const [token, setToken] = useState();
+  const navigate = useNavigate();
 
   const submitHandler = e => {
     e.preventDefault();
@@ -57,6 +55,8 @@ export default function SignIn() {
           message: 'El usuario se logueo correctamente!',
           type: 'success'
         });
+        navigate("/List");
+
       })
       .catch((err) => {
         console.log("Hubo un error en la llamada: ", err)
@@ -93,26 +93,30 @@ export default function SignIn() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  const marginXY = {m: '2px 0px'};
 
   return (
     <div>
-      <Avatar sx={{m: 1, bgcolor: 'secondary.main' }}>
-        <LockOutlinedIcon />
-      </Avatar>
+      <div className="avatar-container">
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <LockOutlinedIcon />
+        </Avatar>
+      </div>
       <Typography component="h1" variant="h5">
         Sign in
       </Typography>
-      <ValidatorForm onSubmit={submitHandler} sx={{width: '100%'}}>
-        <TextValidator id="emailId"
+      <ValidatorForm onSubmit={submitHandler}>
+        <TextValidator sx={marginXY} id="emailId"
           label="Email"
           variant="outlined"
           name="email"
+          type="email"
           value={values.email}
           onChange={handleChange}
           validators={['required', 'isEmail']}
           errorMessages={['Este campo es obligatorio', 'No es un mail valido']}
         />
-        <TextValidator id="passwordId"
+        <TextValidator sx={marginXY} id="passwordId"
           label="Contraseña"
           variant="outlined"
           type="password"
@@ -124,7 +128,7 @@ export default function SignIn() {
         />
         {/*Cambiar a componente Button de MUI */}
         {/* <button type="submit">Ingresar</button> */}
-        <Button variant="contained" type="submit"> Ingresar </Button>
+        <Button variant="contained" type="submit" sx={marginXY}> Ingresar </Button>
       </ValidatorForm>
       <Snackbar open={showMessage.status} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={showMessage.type} >
