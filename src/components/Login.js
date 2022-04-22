@@ -28,10 +28,15 @@ const submitHandler = e => {
   
   /* Debería estar una logica de validación de datos de usuario */
 
-  axios.post('url_de_API_a_conectar',{email, password})
+  //email -> challenge@alkemy.org
+  //password -> react
+  axios.post('http://challenge-react.alkemy.org',{email, password})
   .then(res => { 
     console.log(res);
     console.log(res.data);
+    localStorage.setItem('token', res.data.token);
+    //Para borrar localStorage data
+    //localStorage.clear()
   });
 
 }
@@ -58,10 +63,12 @@ const Login = () => {
     showPassword: false
   });
 
+  //Copiado de Mui->TextField
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  //Copiado de Mui->TextField
   const handleClickShowPassword = () => {
     setValues({
       ...values,
@@ -69,6 +76,7 @@ const Login = () => {
     });
   };
 
+  //Copiado de Mui->TextField
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -84,16 +92,8 @@ const Login = () => {
             defaultValue=""
             name="email"
           />
-          {/*<TextField
-            required
-            id="passwordId"
-            label="Password"
-            defaultValue=""
-            name="password"
-            type="password"
-          />*/}
           {/* source: Mui->TextField */}
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel>Password</InputLabel>
           <OutlinedInput
             id="passwordId"
             type={values.showPassword ? 'text' : 'password'}
@@ -114,10 +114,14 @@ const Login = () => {
             label="Password"
           />
           {/*End Mui->TextField*/ }
+          {/* Copied from https://github.com/mui/material-ui/tree/v5.6.2/docs/data/material/getting-started/templates/sign-in */}
+            
+          {/* End copy from github*/}
         </div>
         <button type="submit"> Login </button>
       </form>
   );
 }
 
-export default Login;
+export default Login; 
+

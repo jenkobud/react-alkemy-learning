@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  background-color: #282c34;
+  color: aliceblue;
+  height: 100vh;
 }
 
 .App-logo {
