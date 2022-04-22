@@ -3,6 +3,7 @@ import './App.css';
 import Login from './components/Login.js';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import SignIn from './components/SignIn';
+import AppRouter from './components/AppRouter';
 
 const darkTheme = createTheme({
   palette: {
@@ -14,8 +15,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <div className="App">
-        {/*<Login/>*/}
-        <SignIn/>
+        <AppRouter />
       </div>
     </ThemeProvider>
   );
