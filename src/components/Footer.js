@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer>
       <div>
-        <img src='./logo.svg' title='disney-logo' alt='disney-logo' />
+        <img src='https://logodownload.org/wp-content/uploads/2020/11/disney-plus-logo-1.png' title='disney-logo' alt='disney-logo' />
       </div>
       <navbar className='navBar-footer'>
         <ul>

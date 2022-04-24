@@ -8,7 +8,7 @@ const Header = () => {
     <header className='header-disney'>
       <navbar>
         <div className='container-logo'>
-          <img src='./logo.svg' title='disney-logo' alt=''/>
+          <img src='https://logodownload.org/wp-content/uploads/2020/11/disney-plus-logo-1.png' title='disney-logo' alt=''/>
         </div>
         <ul>
           <li><Link to="/list">Inicio</Link></li>                
