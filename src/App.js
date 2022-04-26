@@ -1,5 +1,5 @@
 import React from 'react';
-import './Layout.css';
+import './styles/Layout.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import AppRouter from './components/AppRouter';
 

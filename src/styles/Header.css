@@ -8,15 +8,15 @@
 
 }
 
-.header-disney navbar{
+.header-disney nav{
     display: flex;
     width: 100%;
     margin-left: 10px;
 }
-.header-disney navbar .container-logo{
+.header-disney nav .container-logo{
     margin: 0px 20px;
 }
-.header-disney navbar ul {
+.header-disney nav ul {
     display: flex;
     margin: 0px 5px;
     padding: 0;
@@ -25,17 +25,17 @@
     align-items: center;
 }
 
-.header-disney navbar ul li { 
+.header-disney nav ul li { 
     margin-right: 10px;
  }
 
-.header-disney navbar ul li:hover {
+.header-disney nav ul li:hover {
     /* A terminar... */
     text-decoration: underline;
     text-size-adjust: 20px;
 }
 
-.header-disney navbar ul li * {
+.header-disney nav ul li * {
     color: white;
     text-decoration: none;
 }

@@ -22,3 +22,9 @@
   float: left;
   width: 100%;
 }
+
+.signin-content-container {
+  min-height: calc(100vh - 235px);
+  float: left;
+  width: 100%;
+}

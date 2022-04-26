@@ -1,4 +1,4 @@
-import './Footer.css';
+import '../styles/Footer.css';
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const Footer = () => {
       <div>
         <img src='https://logodownload.org/wp-content/uploads/2020/11/disney-plus-logo-1.png' title='disney-logo' alt='disney-logo' />
       </div>
-      <navbar className='navBar-footer'>
+      <nav className='nav-footer'>
         <ul>
           <li><Link to="/list">Inicio</Link></li>
           <li><Link to="/privacy">Politicas de Privacidad</Link></li>
@@ -26,7 +26,7 @@ const Footer = () => {
         <span>
           © Disney. Todos los derechos reservados.
         </span>
-      </navbar>
+      </nav>
     </footer>
   );
 }
