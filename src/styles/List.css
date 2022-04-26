@@ -1,0 +1,25 @@
+.listado-container{
+  display: flex;
+  justify-content: center; 
+  justify-items: center;
+  background-color: none;
+  min-width: 90vw;
+  max-width: 98vw;
+}
+
+.listado-container * {
+  margin: 0px 2px;
+}
+
+.list-content-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-content:  center;
+
+}
+
+.width-to-content{
+  width: fit-content;
+}
