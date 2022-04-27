@@ -1,39 +1,52 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { Box } from "@mui/system";
 import FilmCard from './FilmCard';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 // import required modules
 import { Pagination } from 'swiper';
 
+// import services
+import discoverMovies from '../servicies/movieDB.service';
+
 // Styles
 import '../styles/List.css';
+import 'swiper/swiper.min.css'
+import 'swiper/modules/pagination/pagination.min.css'
+
 
 
 const List = () => {
-  return(
+  //States
+  const [discoverMoviesArray, setDiscoverMoviesArray] = useState([]);
+  //Effects
+  useEffect(() => {
+    discoverMovies().then(res => { setDiscoverMoviesArray(res.data.results); })
+    .catch(err => { console.log('Error con themovieDB -> ' + err); });
+  }, []);
+
+  return (
     <Box className='list-content-container'>
-      <h2> Listado: </h2>
       <Swiper
-        slidesPerView={4}
-        spaceBetween={3}
-        centeredSlides={true}
+        slidesPerView={5}
+        spaceBetween={10}
         pagination={{
           clickable: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className="slidesPerView"
       >
-        <SwiperSlide>
-        <FilmCard title='KungFuPanda' imgUrl='https://image.tmdb.org/t/p/original/wzOERnvuM3c2mbAvCu5pw1QIaZX.jpg' />
-        </SwiperSlide>
-        <SwiperSlide>
-        <FilmCard title='koe no katachi' imgUrl='https://i.pinimg.com/originals/25/d6/84/25d684169f76bbb609638c4940d1fe56.jpg' />
-        </SwiperSlide>
-        <SwiperSlide>
-        <FilmCard title='Avengers Endgame' imgUrl='https://www.themoviedb.org/t/p/original/br6krBFpaYmCSglLBWRuhui7tPc.jpg' />
-        </SwiperSlide>
+        { discoverMoviesArray.map ( (movies) => {
+          // Key es necesario por parte de .map()
+          return (
+            <SwiperSlide key={movies.id}>
+              <FilmCard title={movies.original_title} imgUrl={`https://image.tmdb.org/t/p/original${movies.poster_path}`} id={movies.id} />
+            </SwiperSlide>
+          );
+        }) }
       </Swiper>
-        
+      
+
     </Box>
   );
 }

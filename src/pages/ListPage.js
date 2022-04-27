@@ -16,14 +16,14 @@ const ListPage = () => {
     {/* De esta manera ni se carga el resto de los componentes
         hasta que no se verifique la condición de la terna. */}
 
-    { !token ? <Navigate to='/login' /> : 
-        ( <div className='home-page'>
-            <Header />
-            <div className='general-container'>
-              <List />
-            </div>
-            <Footer />
-          </div>  )
+      {!token ? <Navigate to='/login' /> :
+        (<div className='home-page'>
+          <Header />
+          <div className='general-container'>
+            <List />
+          </div>
+          <Footer />
+        </div>)
       }
     </>
   );

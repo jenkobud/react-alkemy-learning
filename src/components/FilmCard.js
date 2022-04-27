@@ -14,11 +14,11 @@ const FilmCard = (props) => {
   // }
   return(
     <>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, minWidth: 100 }} id={props.id}>
         <CardActionArea>
           <CardMedia
             component="img"
-            height="200"
+            height="150px"
             width="100%"
             image={props.imgUrl}
             alt={props.title}
