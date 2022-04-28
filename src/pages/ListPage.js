@@ -6,6 +6,8 @@ import { Navigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import List from '../components/List';
+import BrandsList from '../components/BrandsList';
+import CarrouselPopularMovies from '../components/CarrouselPopularMovies';
 
 
 const ListPage = () => {
@@ -20,6 +22,8 @@ const ListPage = () => {
         (<div className='home-page'>
           <Header />
           <div className='general-container'>
+            <CarrouselPopularMovies />
+            <BrandsList />
             <List />
           </div>
           <Footer />

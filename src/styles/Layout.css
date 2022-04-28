@@ -45,6 +45,10 @@
 .general-container {
   min-height: calc(100vh - 309px);
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-content: start;
+  align-items: center;
 }
 
 .signin-content-container {
@@ -53,7 +57,19 @@
   width: 100%;
 }
 
+.brands-list-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+  width: 90%;
+}
+
+.brands-list-container *{
+  margin: 0px 5px;
+}
+
 p,a,span,h1,h2,h3,h4 {
   font-family: 'metropolisregular';
 }
+
 

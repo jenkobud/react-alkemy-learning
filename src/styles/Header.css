@@ -114,6 +114,17 @@ header.header-disney nav ul li a:hover:before {
     padding: 0px;
 }
 
+.user-avatar-icon{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-self: center;
+    color: white;
+}
+.user-avatar-icon *{
+    padding: 0px 3px;
+}
 header.header-disney nav {
     height: 100%;
     float: left;
@@ -121,6 +132,14 @@ header.header-disney nav {
 
 .header-spacer{
     height: 74px;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: 10px;
+    width: 90%;
+    left: 0px;
+    display: flex;
+    justify-content: end;
 }
 
 /*----- ANIMATIONS -----*/

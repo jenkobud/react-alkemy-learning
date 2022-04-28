@@ -51,7 +51,10 @@ const Header = () => {
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
           >
-            <img src="https://raw.githubusercontent.com/cortiz2894/bootcamp-React-BBVA/8a4c3a7af1ca26a5078e20326194e7abe2e9cdbe/public/avatar.png" alt="avatar.png" />
+            <div className='user-avatar-icon'>
+              <span>user</span>
+              <img src="https://raw.githubusercontent.com/cortiz2894/bootcamp-React-BBVA/8a4c3a7af1ca26a5078e20326194e7abe2e9cdbe/public/avatar.png" alt="avatar.png" />
+            </div>
           </button>
           <Menu
             id="basic-menu"
