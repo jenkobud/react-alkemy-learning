@@ -11,10 +11,46 @@ article{
   flex-direction: column;
   justify-content: center;
   justify-items: center;
-  align-items: start;
-  align-content: start;
+  align-items: flex-start;
+  align-content: flex-start;
 }
 
 .poster-container img {
   height: 300px;
+}
+
+.info-details h4{
+  margin: 0px;
+  margin-block-start: 10px;
+  margin-block-end: 0px;
+}
+
+.info-details{
+  width: 80%;
+}
+
+.info-details *{
+  margin: 5px 0px;
+}
+
+.movie-container{
+  background-position: top right;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tags-container{
+  display: flex;
+  justify-content: space-evenly;
+  justify-items: space-evenly;
+  align-content: center;
+  align-items: center;
+}
+
+.css-1vbvugf-MuiButtonBase-root-MuiButton-root.Mui-disabled{
+  text-decoration: solid;
+  background-color: #31343E;
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  padding: 0px;
 }

@@ -33,4 +33,8 @@ const getMovieById = (movieId) => {
 const getImageUrl = (path) => { 
   return(`https://image.tmdb.org/t/p/w500${path}`); };
 
-export {discoverMovies, popularMovies, getMovieById, getImageUrl};
+  const getFHDImageUrl = (path) => {
+  return(`https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${path}`);
+};
+
+export {discoverMovies, popularMovies, getMovieById, getImageUrl, getFHDImageUrl};
