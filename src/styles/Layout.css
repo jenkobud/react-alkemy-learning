@@ -49,6 +49,7 @@
   flex-direction: column;
   align-content: start;
   align-items: center;
+  margin: 5px 0px;
 }
 
 .signin-content-container {
@@ -72,4 +73,5 @@ p,a,span,h1,h2,h3,h4 {
   font-family: 'metropolisregular';
 }
 
-
+/* Quitar después */
+.border{ border: solid 5px blueviolet; }

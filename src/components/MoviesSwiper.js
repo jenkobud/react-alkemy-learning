@@ -6,29 +6,19 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 // import required modules
 import { Pagination } from 'swiper';
 
-// import services
-import discoverMovies from '../servicies/movieDB.service';
-
 // Styles
-import '../styles/List.css';
+import '../styles/MoviesSwiper.css';
 import 'swiper/swiper.min.css'
 import 'swiper/modules/pagination/pagination.min.css'
 
 
 
-const List = () => {
-  //States
-  const [discoverMoviesArray, setDiscoverMoviesArray] = useState([]);
-  //Effects
-  useEffect(() => {
-    discoverMovies().then(res => { setDiscoverMoviesArray(res.data.results); })
-    .catch(err => { console.log('Error con themovieDB -> ' + err); });
-  }, []);
+const MoviesSwiper = ({movies, slidesPerView = 1, imgHeigth="150px"}) => {
 
   return (
     <Box className='list-content-container'>
       <Swiper
-        slidesPerView={5}
+        slidesPerView={slidesPerView}
         spaceBetween={10}
         pagination={{
           clickable: true,
@@ -36,11 +26,11 @@ const List = () => {
         modules={[Pagination]}
         className="slidesPerView"
       >
-        { discoverMoviesArray.map ( (movies) => {
+        { movies.map ( (films) => {
           // Key es necesario por parte de .map()
           return (
-            <SwiperSlide key={movies.id}>
-              <FilmCard title={movies.original_title} imgUrl={`https://image.tmdb.org/t/p/original${movies.poster_path}`} id={movies.id} />
+            <SwiperSlide key={films.id}>
+              <FilmCard title={films.original_title} imgUrl={`https://image.tmdb.org/t/p/original${films.backdrop_path}`} id={films.id} height={imgHeigth} />
             </SwiperSlide>
           );
         }) }
@@ -51,4 +41,4 @@ const List = () => {
   );
 }
 
-export default List;
+export default MoviesSwiper;
