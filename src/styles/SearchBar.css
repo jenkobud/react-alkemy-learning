@@ -1,0 +1,10 @@
+.general-container {
+  min-height: calc(100vh - 309px);
+}
+
+.searchbar-container {
+  width: 100vw;
+  height: 90px;
+  background: rgb(51, 53, 61);
+  background: linear-gradient(180deg, rgba(51, 53, 61, 1) 0%, rgba(75, 78, 90, 1) 100%);
+}

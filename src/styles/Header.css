@@ -4,7 +4,8 @@
     top: 0px;
     right: 0px;
     width: 100%;
-    background-color: black;
+    background: rgb(17,19,27);
+background: linear-gradient(180deg, rgba(17,19,27,1) 0%, rgba(66,69,79,1) 100%);
     display: flex;
     padding: 10px 20px;
     align-items: center;

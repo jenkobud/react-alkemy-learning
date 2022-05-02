@@ -6,6 +6,7 @@ const SearchPage = () => {
     return(
         <div className="home-page">
             <Header />
+            <SearchPage placeholder='Título, personaje o género..'/>
             <div className='general-container'>
                 search
             </div>

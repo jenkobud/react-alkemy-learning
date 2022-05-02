@@ -1,7 +1,7 @@
 import '../styles/Header.css';
 import * as React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 // Icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -12,10 +12,10 @@ import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
 import LiveTvIcon from '@mui/icons-material/LiveTv';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { height } from '@mui/system';
 
 const Header = () => {
 
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -26,6 +26,11 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogOut = () =>{
+    localStorage.removeItem('token');
+    navigate('/login');
+  }
 
   return (
     <>
@@ -67,7 +72,7 @@ const Header = () => {
           >
             <MenuItem onClick={handleClose}>Profile</MenuItem>
             <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
+            <MenuItem onClick={handleLogOut}>Logout</MenuItem>
           </Menu>
         </div>
       </header>

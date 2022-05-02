@@ -4,6 +4,11 @@ article{
   justify-content: center;
   justify-items: center;
   width: 90vw;
+  background-color: rgba(125,125,125,125,0.6);
+}
+
+article * {
+  margin: 10px 0px;
 }
 
 .movie-info-container{
@@ -26,7 +31,7 @@ article{
 }
 
 .info-details{
-  width: 80%;
+  width: 60%;
 }
 
 .info-details *{
@@ -47,10 +52,24 @@ article{
   align-items: center;
 }
 
-.css-1vbvugf-MuiButtonBase-root-MuiButton-root.Mui-disabled{
+button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.Mui-disabled.css-1vbvugf-MuiButtonBase-root-MuiButton-root{
   text-decoration: solid;
   background-color: #31343E;
   border: none;
   color: rgba(255, 255, 255, 1);
   padding: 0px;
+}
+
+.circular-button{
+  /* Volver los botones redondos strictly */
+}
+
+.button-watch{
+  background-color: #F9F9F9;
+  color: #1A1D29;
+  border: none;
+}
+
+.tabs{
+  width: 100%;
 }
