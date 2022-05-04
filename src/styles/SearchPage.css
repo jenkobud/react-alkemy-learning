@@ -1,0 +1,10 @@
+.search-results{
+  width: 90%;
+  max-width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.search-results div{ margin: 5px; }
+.general-container h4{margin-left: 5%;}

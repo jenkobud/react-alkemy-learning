@@ -4,10 +4,11 @@ article{
   justify-content: center;
   justify-items: center;
   width: 90vw;
-  background-color: rgba(125,125,125,125,0.6);
+  /* background: rgba(125,125,125,0.5); */
+  z-index: 1;
 }
 
-article * {
+article div{
   margin: 10px 0px;
 }
 
@@ -38,12 +39,6 @@ article * {
   margin: 5px 0px;
 }
 
-.movie-container{
-  background-position: top right;
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
 .tags-container{
   display: flex;
   justify-content: space-evenly;
@@ -60,6 +55,8 @@ button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-siz
   padding: 0px;
 }
 
+.poster-container { margin-left: 10%; }
+
 .circular-button{
   /* Volver los botones redondos strictly */
 }
@@ -72,4 +69,20 @@ button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-siz
 
 .tabs{
   width: 100%;
+}
+
+.background-img{
+  position: fixed;
+  top: 64.4px;
+  right: 0px;
+  z-index: 0;
+  background-position: top right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100vw;
+}
+
+.movie-container{
+  background: rgb(26, 29, 41);
+  background: linear-gradient(90deg, rgba(26,29,41,1) 0%,rgba(75,78,90,0.13769257703081228) 30%, rgba(30,33,45,0.7035189075630253) 90%,rgba(26,29,41,1) 100%);
 }

@@ -2,6 +2,8 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 // Created Components
 import Footer from '../components/Footer';
@@ -19,12 +21,14 @@ const HomePage = () => {
   //States
   const [discoverMoviesArray, setDiscoverMoviesArray] = useState([]);
   const [popMovies, setPopMovies] = useState([]);
+  const [loader, setLoader] = useState(true);
   //Effects
   useEffect(() => {
     discoverMovies().then(res => { setDiscoverMoviesArray(res.data.results); })
       .catch(err => { console.log('Error con themovieDB -> ' + err); });
     popularMovies().then(res => { setPopMovies(res.data.results); })
-      .catch(err => { console.log('Error con themovieDB -> ' + err); });
+      .catch(err => { console.log('Error con themovieDB -> ' + err); })
+      .finally(setTimeout(()=>{ setLoader(false); },800));
     
   }, []);
   return (
@@ -33,15 +37,20 @@ const HomePage = () => {
         hasta que no se verifique la condición de la terna. */}
 
       {!token ? <Navigate to='/login' /> :
-        (<div className='home-page'>
+        <div className='home-page'>
           <Header />
-          <div className='general-container'>
-            <MoviesSwiper movies={popMovies} slidesPerView={1} imgHeigth='60vh'/>
+          {loader ? (
+          <Box className='general-container loader-container'>
+            <CircularProgress />
+          </Box>
+          ) :
+          (<div className='general-container'>
+            <MoviesSwiper movies={popMovies} slidesPerView={1} imgHeigth='60vh' />
             <BrandsList />
-            <MoviesSwiper movies={discoverMoviesArray} slidesPerView={5}/>
-          </div>
+            <MoviesSwiper movies={discoverMoviesArray} slidesPerView={5} />
+          </div>)}
           <Footer />
-        </div>)
+        </div>
       }
     </>
   );

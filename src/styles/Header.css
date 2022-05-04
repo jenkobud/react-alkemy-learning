@@ -123,17 +123,13 @@ header.header-disney nav ul li a:hover:before {
     align-self: center;
     color: white;
 }
-.user-avatar-icon *{
-    padding: 0px 3px;
-}
+.user-avatar-icon *{ padding: 0px 3px; }
 header.header-disney nav {
     height: 100%;
     float: left;
 }
 
-.header-spacer{
-    height: 74px;
-}
+.header-spacer{ height: 67.39px; }
 
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
     bottom: 10px;

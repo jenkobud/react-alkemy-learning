@@ -3,6 +3,7 @@ footer {
     padding: 15px 0px; 
     float: left;
     width: 100vw;
+    z-index: 1;
 }
 
 footer div {

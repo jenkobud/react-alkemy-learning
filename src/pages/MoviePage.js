@@ -12,6 +12,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import CircularProgress from '@mui/material/CircularProgress';
 
 // Created Components
 import Footer from '../components/Footer';
@@ -29,13 +30,14 @@ const MoviePage = () => {
 
   const token = localStorage.getItem('token');
   const [movieInfo,setMovieInfo] = useState({});
+  const[loader, setLoader] = useState(true);
   const { id = 0 } = useParams();
   useEffect(() => {
     //Después cambiarlo con fowardRef..
-    getMovieById(id).then((res) => { 
-      setMovieInfo(res.data); 
-    })
-    .catch(err => { console.log('Error de themovieDB -> '+ err); });
+    getMovieById(id)
+      .then((res) => { setMovieInfo(res.data); })
+      .catch(err => { console.log('Error de themovieDB -> '+ err); })
+      .finally( setTimeout( ()=>{setLoader(false)} ,800) );
   },[]);
 
   return (
@@ -43,49 +45,58 @@ const MoviePage = () => {
       {!token && <Navigate to='/' />}
       <div className='movie-page'>
         <Header />
-        <div className='general-container movie-container' style={{ backgroundImage: `url(${getFHDImageUrl(movieInfo.backdrop_path)})` }}>
-          <article className='border'>
-            <div className='movie-info-container'>
-              <div className='poster-container'>
-                <img alt={movieInfo.original_title} src={getImageUrl(movieInfo.poster_path)} />
-              </div>
-              <div className='info-details border'>
-                <h4>{movieInfo.original_title}</h4>
-                <a href={movieInfo.homepage} target="_blank">{movieInfo.homepage}</a>
-                <div className='tags-container'>
-                  <Button variant="outlined" disabled>
-                    <b>{movieInfo.original_language}</b>
-                  </Button>
-                  <Button variant="outlined" disabled>
-                    <b>CC</b>
-                  </Button>
-                  <Button variant="outlined" disabled endIcon={<StarHalfIcon />}>
-                    <b>{movieInfo.vote_average} </b>
-                  </Button>
-                  <span>2021</span>
-                  <span>148min</span>
-                </div>
-                {/* <span>{genres.map((genre) => {
+        {loader ? (
+          <Box className='general-container loader-container'>
+            <CircularProgress />
+          </Box>
+          ) :
+          <>
+            <div className='general-container background-img' style={{ backgroundImage: `url(${getFHDImageUrl(movieInfo.backdrop_path)})` }}></div>
+            <div className='general-container movie-container'>
+              <article>
+                <div className='movie-info-container'>
+                  <div className='poster-container'>
+                    <img alt={movieInfo.original_title} src={getImageUrl(movieInfo.poster_path)} />
+                  </div>
+                  <div className='info-details border'>
+                    <h4>{movieInfo.original_title}</h4>
+                    <a href={movieInfo.homepage} target="_blank">{movieInfo.homepage}</a>
+                    <div className='tags-container'>
+                      <Button variant="outlined" disabled>
+                        <b>{movieInfo.original_language}</b>
+                      </Button>
+                      <Button variant="outlined" disabled>
+                        <b>CC</b>
+                      </Button>
+                      <Button variant="outlined" disabled endIcon={<StarHalfIcon />}>
+                        <b>{movieInfo.vote_average} </b>
+                      </Button>
+                      <span>2021</span>
+                      <span>148min</span>
+                    </div>
+                    {/* <span>{genres.map((genre) => {
                     return(genre.name + ',');
                   })}</span> */}
 
-                <div className='tags-container'>
-                  <Button className='button-watch' size="small" startIcon={<PlayArrowIcon />}>
-                    <b>VER AHORA </b>
-                  </Button>
-                  <Button variant="outlined" size="large"> TRAILER </Button>
-                  <IconButton className='circular-button'> <AddIcon /></IconButton>
-                  <IconButton className='circular-button'> <GroupsIcon /> </IconButton>
-                </div>
-                <p>{movieInfo.overview}</p>
-              </div>
-              <div className='tabs'>
-                <TabsPanel />
-              </div>
+                    <div className='tags-container'>
+                      <Button className='button-watch' size="small" startIcon={<PlayArrowIcon />}>
+                        <b>VER AHORA </b>
+                      </Button>
+                      <Button variant="outlined" size="large"> TRAILER </Button>
+                      <IconButton className='circular-button'> <AddIcon /></IconButton>
+                      <IconButton className='circular-button'> <GroupsIcon /> </IconButton>
+                    </div>
+                    <p>{movieInfo.overview}</p>
+                  </div>
+                  <div className='tabs'>
+                    <TabsPanel />
+                  </div>
 
+                </div>
+              </article>
             </div>
-          </article>
-        </div>
+          </>
+        }
         <Footer />
       </div >
     </>

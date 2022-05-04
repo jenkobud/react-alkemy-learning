@@ -13,7 +13,7 @@ import 'swiper/modules/pagination/pagination.min.css'
 
 
 
-const MoviesSwiper = ({movies, slidesPerView = 1, imgHeigth="150px"}) => {
+const MoviesSwiper = ({movies, slidesPerView = 1, imgHeigth="100%"}) => {
 
   return (
     <Box className='list-content-container'>

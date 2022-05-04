@@ -29,7 +29,7 @@
   text-align: center;
   background-color: #282c34;
   color: aliceblue;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* Added by dev. */
@@ -41,7 +41,10 @@
   display: flex;
   justify-content: center;
 }
-
+.loader-container{
+  justify-content: center;
+  align-content: center;
+}
 .general-container {
   min-height: calc(100vh - 309px);
   width: 100vw;
@@ -65,7 +68,7 @@
   width: 90%;
 }
 
-.brands-list-container *{
+.brands-list-container div{
   margin: 0px 5px;
 }
 

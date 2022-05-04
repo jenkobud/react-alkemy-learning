@@ -2,14 +2,20 @@
   min-height: calc(100vh - 309px);
 }
 
+.searchbar-spacer{ height: 100px; }
+
 .searchbar-container {
+  position: fixed;
+  top: 67.4px;
+  right: 0px;
+  z-index: 1;
   width: 100vw;
   height: 100px;
   background: rgb(51, 53, 61);
   background: linear-gradient(180deg, rgba(51, 53, 61, 1) 0%, rgba(75, 78, 90, 1) 100%);
 }
 
- input{
+input{
   outline: none;
   width: 100%;
   height: 100%;

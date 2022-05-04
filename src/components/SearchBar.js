@@ -4,16 +4,20 @@ import { useState, useEffect } from 'react';
 import '../styles/SearchBar.css';
 import '../styles/Layout.css';
 
-const SearchBar = ({placeholder='Buscar...'}) => {
-  const [keyword, setKeyword] = useState('');
-  const handleOnChange = e => { setKeyword(e.target.value); }
-  useEffect(() => {
-    //Buscar las peliculas/series que concuerden con keyword...
-  }, [keyword]);
+const SearchBar = ({placeholder='Buscar...', setSearchWord}) => {
+  //const [keyword, setKeyword] = useState('');
+  const handleOnChange = e => { 
+    //setKeyword(e.target.value);
+    setSearchWord(e.target.value); 
+  }
+  
   return(
-    <div className='searchbar-container'>
-      <input type='text' placeholder={placeholder} onChange={handleOnChange}/>
-    </div>
+    <>
+      <div className='searchbar-container'>
+        <input type='text' placeholder={placeholder} onChange={handleOnChange} />
+      </div>
+      <div className='searchbar-spacer'></div>
+    </>
   );
 }
 
