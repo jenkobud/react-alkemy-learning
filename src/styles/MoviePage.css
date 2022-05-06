@@ -80,9 +80,38 @@ button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-siz
   background-size: contain;
   background-repeat: no-repeat;
   width: 100vw;
+  opacity: 0.3;
 }
 
 .movie-container{
   background: rgb(26, 29, 41);
-  background: linear-gradient(90deg, rgba(26,29,41,1) 0%,rgba(75,78,90,0.13769257703081228) 30%, rgba(30,33,45,0.7035189075630253) 90%,rgba(26,29,41,1) 100%);
+  /* background: linear-gradient(90deg, rgba(26,29,41,1) 0%,rgba(75,78,90,0.13769257703081228) 30%, rgba(30,33,45,0.7035189075630253) 90%,rgba(26,29,41,1) 100%); */
+}
+
+.detail-tab-content{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.fifty-percent{ width: 50%; }
+.twentyfive-percent{ 
+  display: flex;
+  flex-direction: column;
+  width: 25%; 
+}
+
+.flex-col-start{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-items: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.flex-col-start h2,h3,h4,h5{
+  margin: 0px;
+  padding: 0px;
 }
