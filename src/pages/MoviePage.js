@@ -29,7 +29,10 @@ import { getMovieById, getImageUrl, getFHDImageUrl } from '../servicies/movieDB.
 const intToHoursAndMinutes = (minutes) => {
   //returns a String.
   let h = Math.round(minutes / 60);
-  return (`${h} h ${minutes - (h * 60)} min`);
+  let m = Math.abs(minutes - (h * 60));
+  console.log({h});
+  console.log({m});
+  return (`${h} h ${m} min`);
 }
 
 const MoviePage = () => {
@@ -68,7 +71,7 @@ const MoviePage = () => {
         <h5>Genero</h5>
         {movieGenres.map(genre=>{ return (<span key={genre.id}>{genre.name} </span>) }) }
         <h5>Clasificación</h5>
-        <span>{movieInfo.adult ? '+18' : 'ATP'}</span>
+        <span className='badge'>{movieInfo.adult ? '+18' : 'ATP'}</span>
       </div>
       <div className='flex-col-start'>
         <h5>Dirigido por</h5>
@@ -104,30 +107,32 @@ const MoviePage = () => {
                   </div>
                   <div className='info-details'>
                     <h4>{movieInfo.original_title}</h4>
+                    <span>Más información en </span>
                     <a href={movieInfo.homepage} target="_blank">{movieInfo.homepage}</a>
-                    <div className='tags-container'>
-                      <Button variant="outlined" disabled>
+                    <div className='tags-container badges'>
+                      <span className='badge'>
                         <b>{movieInfo.original_language}</b>
-                      </Button>
-                      <Button variant="outlined" disabled>
+                      </span>
+                      <span className='badge'>
                         <b>CC</b>
-                      </Button>
-                      <Button variant="outlined" disabled endIcon={<StarHalfIcon />}>
-                        <b>{movieInfo.vote_average} </b>
-                      </Button>
-                      <span>2021</span>
-                      <span>148min</span>
+                      </span>
+                      <span className='badge'>
+                        <b>{movieInfo.vote_average}</b>
+                        <StarHalfIcon sx={{margin: '0px', width: '1rem', height:'1rem'}}/>
+                      </span>
+                      <span>{movieInfo.release_date}</span>
+                      <span> • </span>
+                      <span>{intToHoursAndMinutes(movieInfo.runtime)}</span>
                     </div>
-                    <span>{movieGenres.toString()}</span>
                     <span>{movieGenres.map((genre) => {
                     return(genre.name + ',');
                   })}</span>
 
                     <div className='tags-container'>
-                      <Button className='button-watch' size="small" startIcon={<PlayArrowIcon />}>
+                      <Button className='button-watch button' startIcon={<PlayArrowIcon />}>
                         <b>VER AHORA </b>
                       </Button>
-                      <Button variant="outlined" size="large"> TRAILER </Button>
+                      <Button className='button-trailer button'variant="outlined" size="large"> TRAILER </Button>
                       <IconButton className='circular-button'> <AddIcon /></IconButton>
                       <IconButton className='circular-button'> <GroupsIcon /> </IconButton>
                     </div>

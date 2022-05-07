@@ -1,4 +1,4 @@
-article{
+article {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,11 +8,15 @@ article{
   z-index: 1;
 }
 
-article div{
+article div {
   margin: 10px 0px;
 }
 
-.movie-info-container{
+a{
+  color:#66bcff;
+}
+
+.movie-info-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,21 +29,21 @@ article div{
   height: 300px;
 }
 
-.info-details h4{
+.info-details h4 {
   margin: 0px;
   margin-block-start: 10px;
   margin-block-end: 0px;
 }
 
-.info-details{
+.info-details {
   width: 60%;
 }
 
-.info-details *{
+.info-details div {
   margin: 5px 0px;
 }
 
-.tags-container{
+.tags-container {
   display: flex;
   justify-content: space-evenly;
   justify-items: space-evenly;
@@ -47,31 +51,52 @@ article div{
   align-items: center;
 }
 
-button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButtonBase-root.Mui-disabled.css-1vbvugf-MuiButtonBase-root-MuiButton-root{
-  text-decoration: solid;
-  background-color: #31343E;
-  border: none;
-  color: rgba(255, 255, 255, 1);
-  padding: 0px;
+.badges {
+  justify-content: flex-start;
 }
 
-.poster-container { margin-left: 10%; }
-
-.circular-button{
-  /* Volver los botones redondos strictly */
+.badges span {
+  margin-right: 10px;
 }
 
-.button-watch{
-  background-color: #F9F9F9;
-  color: #1A1D29;
-  border: none;
+
+.poster-container {
+  margin-left: 10%;
 }
 
-.tabs{
+.circular-button {
+  background: black !important;
+  border: solid 2px white !important;
+}
+
+.circular-button:hover{
+  color: black !important;
+  background: white !important;
+}
+
+.button-watch {
+  background: white !important;
+  color: black !important;
+  padding: 7px 21px !important;
+}
+
+.button:hover{ 
+  background: rgb(119, 119, 119) !important;
+  border-color: rgb(119, 119, 119) !important;
+  color: black !important;  
+}
+
+.button-trailer{
+  background: black !important;
+  border-color: white !important;
+  color: white !important;
+}
+
+.tabs {
   width: 100%;
 }
 
-.background-img{
+.background-img {
   position: fixed;
   top: 64.4px;
   right: 0px;
@@ -81,28 +106,33 @@ button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-siz
   background-repeat: no-repeat;
   width: 100vw;
   opacity: 0.3;
+  margin: 0px;
 }
 
-.movie-container{
+.movie-container {
   background: rgb(26, 29, 41);
+  margin: 0px;
   /* background: linear-gradient(90deg, rgba(26,29,41,1) 0%,rgba(75,78,90,0.13769257703081228) 30%, rgba(30,33,45,0.7035189075630253) 90%,rgba(26,29,41,1) 100%); */
 }
 
-.detail-tab-content{
+.detail-tab-content {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
 }
 
-.fifty-percent{ width: 50%; }
-.twentyfive-percent{ 
-  display: flex;
-  flex-direction: column;
-  width: 25%; 
+.fifty-percent {
+  width: 50%;
 }
 
-.flex-col-start{
+.twentyfive-percent {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.flex-col-start {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -111,7 +141,15 @@ button.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-siz
   align-items: flex-start;
 }
 
-.flex-col-start h2,h3,h4,h5{
+.flex-col-start h2, h3, h4, h5 {
   margin: 0px;
   padding: 0px;
+}
+
+.badge {
+  border-radius: 10%;
+  background: #31343E;
+  padding: 1px 3px;
+  text-transform: uppercase;
+  text-align: center;
 }
