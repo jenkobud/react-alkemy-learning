@@ -26,7 +26,7 @@ const popularMovies = () => {
 };
 
 const getMovieById = (movieId) => {
-  //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=es-ES
+  //https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=es-ES&append_to_response=credits
   let reqDetails = `/movie/${movieId}?api_key=${api_key}&language=es-ES&append_to_response=credits`;
     return (axios.get(url + reqDetails, {}));
 };

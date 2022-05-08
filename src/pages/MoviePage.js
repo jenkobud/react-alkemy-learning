@@ -30,8 +30,6 @@ const intToHoursAndMinutes = (minutes) => {
   //returns a String.
   let h = Math.round(minutes / 60);
   let m = Math.abs(minutes - (h * 60));
-  console.log({h});
-  console.log({m});
   return (`${h} h ${m} min`);
 }
 
@@ -40,9 +38,12 @@ const MoviePage = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const [movieInfo,setMovieInfo] = useState({});
-  const[loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(true);
   const [movieGenres, setMovieGenres] = useState([]);
+  const [movieCast, setMovieCast] = useState([]);
+  const [movieDirector, setMovieDirector] = useState({name:''});
   const { id = 0 } = useParams();
+  let mainActors = [];
   
   useEffect(() => {
     //Después cambiarlo con fowardRef..
@@ -50,9 +51,11 @@ const MoviePage = () => {
       .then((res) => { 
         setMovieInfo(res.data); 
         setMovieGenres(res.data.genres);
+        setMovieCast(res.data.credits.cast);
+        setMovieDirector(res.data.credits.crew.find(p=>{return(p.job == "Director");}));
       })
       .catch(err => { 
-        console.log('Error de themovieDB -> ' + err);
+        console.err('Error de themovieDB -> ' + err);
         navigate(-1); })
       .finally(setTimeout(() => { setLoader(false) }, 800));
   }, []);
@@ -75,9 +78,12 @@ const MoviePage = () => {
       </div>
       <div className='flex-col-start'>
         <h5>Dirigido por</h5>
-        <span>Director name</span>
+        <span>{movieDirector.name}</span>
         <h5>Elenco</h5>
-        Ipso lorum
+        {movieCast
+          .filter((actor, index) => { return (index < 7 && actor.known_for_department == "Acting");})
+          .map(act=>{ return(<span key={act.id}>{act.name}</span>); }) 
+        }
       </div>
     </div>;
 

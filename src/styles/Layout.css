@@ -59,6 +59,10 @@
   min-height: calc(100vh - 235px);
   float: left;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .brands-list-container{

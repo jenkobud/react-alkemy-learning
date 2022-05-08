@@ -83,8 +83,10 @@ a{
 .button:hover{ 
   background: rgb(119, 119, 119) !important;
   border-color: rgb(119, 119, 119) !important;
-  color: black !important;  
+  color: black !important;
 }
+
+.button:hover svg{ transform: scale(1.5) !important; }
 
 .button-trailer{
   background: black !important;
